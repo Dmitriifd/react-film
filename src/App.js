@@ -1,15 +1,18 @@
-import './App.css';
 import React from 'react';
-import { FormWithRef } from './components/FormWithRef';
+import { Footer } from './layout/Footer';
+import { Header } from './layout/Header';
+import { Main } from './layout/Main';
 
 
 function App() {
     
   
     return (
-      <div className="App">
-        <FormWithRef />
-      </div>
+      <>
+       <Header />
+       <Main />
+       <Footer />
+      </>
     )
   
 }
