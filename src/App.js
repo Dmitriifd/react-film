@@ -1,32 +1,16 @@
 import './App.css';
-import React, {Component} from 'react'
-import Posts from './components/Posts';
+import React from 'react';
+import {Form} from './components/Form';
 
 
-class App extends Component {
-
-  state = {
-    posts: [
-      {id: 'abc1', name: 'JS Basic'},
-      {id: 'abc2', name: 'JS Advanced'},
-      {id: 'abc3', name: 'React JS'},
-    ]
-  }
-
-  removePost = (id) => {
-    this.setState({posts: this.state.posts.filter(post => post.id !== id)})
-  }
-
-
-  render() {
-    const {posts} = this.state
+function App() {
+    
+  
     return (
       <div className="App">
-        <Posts posts={posts} removePost={this.removePost}/>
+        <Form />
       </div>
-    );
-  }
-
+    )
   
 }
 
