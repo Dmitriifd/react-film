@@ -1,13 +1,15 @@
 import React from 'react';
 
 const Post = (props) => {
-    const {name, cb} = props
+    const {id, name, removePost } = props;
 
     return (
-        <div>
-            <h2 onClick={cb}>{name}</h2>
-        </div>
-    );
+			<div>
+				<h2>
+					{name} <button onClick={() => removePost(id)}>delete</button>
+				</h2>
+			</div>
+		)
 };
 
 export default Post;

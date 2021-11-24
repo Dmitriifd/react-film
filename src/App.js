@@ -6,23 +6,23 @@ import Posts from './components/Posts';
 class App extends Component {
 
   state = {
-    post: [
+    posts: [
       {id: 'abc1', name: 'JS Basic'},
       {id: 'abc2', name: 'JS Advanced'},
       {id: 'abc3', name: 'React JS'},
     ]
   }
 
-  handleSomething = () => {
-    console.log('App.jsx setState update');
+  removePost = (id) => {
+    this.setState({posts: this.state.posts.filter(post => post.id !== id)})
   }
 
 
   render() {
-    const {post} = this.state
+    const {posts} = this.state
     return (
       <div className="App">
-        <Posts posts={post} cb={this.handleSomething}/>
+        <Posts posts={posts} removePost={this.removePost}/>
       </div>
     );
   }
