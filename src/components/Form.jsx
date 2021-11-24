@@ -3,28 +3,37 @@ import React from 'react'
 class Form extends React.Component {
 	state = {
 		firstName: '',
-        email: ''
+		email: '',
+		message: '',
+		select: '',
+		subscription: false,
+        gender: ''
 	}
 
-
-    handleChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value})
+	handleChange = (event) => {
+		this.setState({ [event.target.name]: event.target.value })
+	}
+	handleCheckboxChange = (event) => {
+        this.setState({ [event.target.name]: event.target.checked })
     }
 
-    validateName = () => {
-        if (this.state.firstName.length < 5) {
-            
-            alert('Короткое имя')
-        }
-    }
-    validateEmail = () => {
-        if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.state.email)) {
+	validateName = () => {
+		if (this.state.firstName.length < 5) {
+			alert('Короткое имя')
+		}
+	}
+	validateEmail = () => {
+		if (
+			!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+				this.state.email
+			)
+		) {
 			alert('Email не валидный')
 		}
-    }
+	}
 
 	render() {
-        const { firstName, email } = this.state
+		const { firstName, email, message, select, subscription, gender } = this.state
 
 		return (
 			<div>
@@ -44,6 +53,43 @@ class Form extends React.Component {
 					onChange={this.handleChange}
 					onBlur={this.validateEmail}
 				/>
+				<textarea
+					name='message'
+					onChange={this.handleChange}
+					value={message}
+				></textarea>
+				<select name='select' value={select} onChange={this.handleChange}>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
+					<option value='3'>3</option>
+				</select>
+				<br />
+				<label>
+					<input
+						type='checkbox'
+						name='subscription'
+						checked={subscription}
+						onChange={this.handleCheckboxChange}
+					/>
+					Subscription
+				</label>
+				<br />
+				<input
+					type='radio'
+					name='gender'
+					value='male'
+					onChange={this.handleChange}
+					checked={gender === 'male'}
+				/>{' '}
+				Male
+				<input
+					type='radio'
+					name='gender'
+					value='female'
+					onChange={this.handleChange}
+					checked={gender === 'female'}
+				/>{' '}
+				Female
 			</div>
 		)
 	}
