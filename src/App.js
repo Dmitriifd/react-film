@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import { SubscriptionForm } from './components/SubscriptionForm';
+import { FormWithRef } from './components/FormWithRef';
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   
     return (
       <div className="App">
-        <SubscriptionForm />
+        <FormWithRef />
       </div>
     )
   
