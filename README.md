@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ссылка на демо [demo](https://dmitriifd.github.io/react-film/).
 
 ## Available Scripts
 
